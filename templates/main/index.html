@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+{% block body %}
+<div>
+  <div>
+      <div style="text-align: center" class="box">
+      <h2>Good Evening {{ user.username.capitalize }}</h2>
+      </div>
+  </div>
+  <div>
+      <div class="flat-box">
+          <h2 style="margin-left: 7.5%">Your available poses:</h2>
+          <div class="aero-box">
+
+              {% for pose in poses %}
+                  <div class="row">
+                      <div class="column-ma">
+                        {{ pose.name }}
+                      </div>
+                      <form method="post" action="/pose/{{ pose.id }}" class="column-mi">
+                      {% csrf_token %}
+                  <button class="btn btn-secondary float-right pull-right flat-button" type="submit" style="margin-left: 100%; transform: translateX(-100%)">Go</button>
+                  </form>
+                  </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+{% block body %}
+<div class="login-box">
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="user-box">
+      <input type="text" name="username" required="">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" required="">
+      <label>Password</label>
+    </div>
+    <a>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+        <button class="compatible" style="background-color: transparent; border-color: transparent; width: 100%; height: 100%" type="submit">
+            Submit
+        </button>
+    </a>
+  </form>
+</div>
+{% endblock %}

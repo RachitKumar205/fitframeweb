@@ -1,0 +1,53 @@
+{% extends 'main/layout.html' %}
+{% block body %}
+<div>
+  <div>
+      <div style="text-align: center" class="vid-box">
+        <video autoplay hidden></video>
+          <h1>{{ pchosen.name }}</h1>
+        <img src="" style="border-radius: 10px">
+      </div>
+  </div>
+</div>
+
+    <script>
+        // get video dom element
+        const video = document.querySelector('video');
+
+        // get img dom element
+        const img = document.querySelector('img');
+
+        // request access to webcam
+        navigator.mediaDevices.getUserMedia({video: {width: 852, height: 480}}).then((stream) => video.srcObject = stream);
+
+        // returns a frame encoded in base64
+        const getFrame = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            const data = canvas.toDataURL('image/png');
+            return data;
+        }
+
+        const WS_URL = 'ws://localhost:8000/ws/'; // Change this if you serve on different server or port
+        const FPS = 1;
+        const ws = new WebSocket(WS_URL);
+
+        ws.onopen = () => {
+            console.log(`Connected to ${WS_URL}`);
+            setInterval(() => {
+                ws.send(getFrame());
+            }, 1000 / FPS);
+        }
+
+        ws.onmessage = message => {
+            // set the base64 string to the src tag of the image
+            img.src = message.data;
+            if(message.data=="pong"){
+                console.log(message.data)
+            }
+        }
+    </script>
+
+{% endblock %}
