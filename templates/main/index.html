@@ -3,20 +3,20 @@
 <div>
   <div>
       <div style="text-align: center" class="box">
-      <h2>Good Evening {{ user.username.capitalize }}</h2>
+      <h2>Good Evening {{ user.first_name.capitalize }}</h2>
       </div>
   </div>
   <div>
       <div class="flat-box">
-          <h2 style="margin-left: 7.5%">Your available poses:</h2>
-          <div class="aero-box">
+          <h2 style="margin-left: 7.5%; margin-bottom: 4%">Your available poses:</h2>
+          <div class="row-box">
 
               {% for pose in poses %}
                   <div class="row">
                       <div class="column-ma">
                         {{ pose.name }}
                       </div>
-                      <form method="post" action="/pose/{{ pose.id }}" class="column-mi">
+                      <form method="post" action="/pose/{{ pose.id }}/" class="column-mi">
                       {% csrf_token %}
                   <button class="btn btn-secondary float-right pull-right flat-button" type="submit" style="margin-left: 100%; transform: translateX(-100%)">Go</button>
                   </form>
@@ -26,5 +26,8 @@
       </div>
   </div>
 </div>
-
+    <form method="post" action="/accounts/logout/" style="margin-left: 50%; transform: translateX(-50%); margin-top: 2%">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-secondary" style="margin-left: 50%; transform: translateX(-50%);">Sign Out</button>
+    </form>
 {% endblock %}

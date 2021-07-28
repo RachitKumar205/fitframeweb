@@ -15,20 +15,6 @@ def index(request):
     })
 
 
-def signin(request):
-    logout(request)
-    username = password = ''
-    if request.POST:
-        username = request.POST['username']
-        password = request.POST['password']
-
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponse(request,'Nigga u signed in')
-    return render(request, 'registration/login.html')
-
 @login_required()
 def pose(request, pose_id):
     try:
@@ -39,3 +25,6 @@ def pose(request, pose_id):
         ch.save()
 
     return render(request, 'main/pose.html')
+
+def signup(request):
+    return render(request, 'registration/register.html')
