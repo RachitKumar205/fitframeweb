@@ -18,6 +18,7 @@ from fitweb import settings
 from main.routing import websocket_urlpatterns
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fitweb.settings')
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 django.setup()
 settings.configure()
 
