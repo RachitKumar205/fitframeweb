@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
     'channels',
     'whitenoise',
 ]
+
+django.setup()
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
