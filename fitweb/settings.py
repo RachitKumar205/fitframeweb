@@ -76,6 +76,16 @@ TEMPLATES = [
     },
 ]
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("*", 6379)],
+        },
+        "ROUTING": "fitweb.routing.channel_routing",
+    },
+}
+
 WSGI_APPLICATION = 'fitweb.wsgi.application'
 
 ASGI_APPLICATION = 'fitweb.asgi.application'
