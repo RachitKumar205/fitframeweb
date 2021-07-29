@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     'whitenoise',
 ]
 
-django.setup()
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
