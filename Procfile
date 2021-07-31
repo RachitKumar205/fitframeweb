@@ -1,2 +1,2 @@
-web: gunicorn -b 0.0.0.0:$PORT fitweb.wsgi:application
-websocket: daphne -b :: -p 5000 fitweb.asgi:application
+web: daphne fitweb.asgi:application --port $PORT --bind 0.0.0.0 -v2
+worker: python manage.py runworker channel_layer -v2
