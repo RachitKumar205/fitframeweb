@@ -83,11 +83,8 @@ ASGI_APPLICATION = 'fitweb.asgi.application'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [('*', 6379)],
-        },
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
 # Database
