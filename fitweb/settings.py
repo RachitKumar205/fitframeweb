@@ -82,11 +82,6 @@ ASGI_APPLICATION = 'fitweb.asgi.application'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
-    }
-}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
