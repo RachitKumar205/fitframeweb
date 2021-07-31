@@ -30,7 +30,13 @@
             return data;
         }
 
-        const WS_URL = 'ws://localhost:8000/ws/'; // Change this if you serve on different server or port
+        if (window.location.protocol == "https:") {
+            var ws_scheme = "wss://";
+        } else {
+            var ws_scheme = "ws://"
+        };
+
+        const WS_URL = ws_scheme + location.host + '/ws/'; // Change this if you serve on different server or port
         const FPS = 1;
         const ws = new WebSocket(WS_URL);
 
