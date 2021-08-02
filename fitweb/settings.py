@@ -86,16 +86,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 #Using aws database
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'fitframedb',
-       'USER': 'fitframeuser',
-       'PASSWORD': 'Lsa@06rk10am03sd',
-       'HOST': 'localhost',
-       'PORT': '',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
