@@ -9,6 +9,7 @@ class ChannelTest(WebsocketConsumer):
     def disconnect(self, close_code):
         pass
 
+
     def receive(self, text_data):
         if text_data=="ping":
             self.send("pong")
