@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Pose(models.Model):
     id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=255)
     angle1 = models.CharField(max_length=64)
     angle2 = models.CharField(max_length=64)
     angle3 = models.CharField(max_length=64)
