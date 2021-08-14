@@ -1,1 +1,1 @@
-web: uvicorn fitweb.asgi:application --host=0.0.0.0 --port=${PORT:-5000}
+websocket: daphne -b 0.0.0.0 -p 5000 fitweb.asgi:application
