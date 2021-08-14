@@ -1,2 +1,2 @@
-web: uvicorn fitweb.asgi:application --host=0.0.0.0 --port=${PORT:-5000}
+web: web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker fitweb.asgi:application
 worker: python manage.py runworker channel_layer -v2
