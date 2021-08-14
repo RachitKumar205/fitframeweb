@@ -14,4 +14,4 @@ class ChannelTest(WebsocketConsumer):
         if text_data=="ping":
             self.send("pong")
         else:
-            self.send(grayscale(text_data))
+            self.send(text_data)
