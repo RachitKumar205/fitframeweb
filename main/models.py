@@ -15,5 +15,5 @@ class Pose(models.Model):
 
 
 class Choice(models.Model):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=255)
     number = models.IntegerField()
