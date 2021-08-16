@@ -88,10 +88,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #Using aws database
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'fitframe',
+            'ENFORCE_SCHEMA': False,
+            'CONNECT': False,
+            'CLIENT': {
+                'host': 'mongodb+srv://fitframeuser:fitframepassword@cluster0.jxmlt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+            }
+        }
 }
 
 
