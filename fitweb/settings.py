@@ -87,19 +87,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 #Using aws database
 
+
+
 DATABASES = {
-        'default': {
-            'ENGINE': 'djongo',
-            'NAME': 'fitframe',
-            'ENFORCE_SCHEMA': False,
-            'CONNECT': False,
-            'CLIENT': {
-                'host': 'mongodb+srv://fitframeuser:fitframepassword@cluster0.jxmlt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-            }
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'psecwywx',
+        'USER': 'psecwywx',
+        'PASSWORD': 'Q9thO7u7U0cBKwdWSIz_6znI2-qQdWyd',
+        'HOST': 'hansken.db.elephantsql.com',
+        'PORT': '',
+    }
 }
-
-
 
 CHANNEL_LAYERS = {
     "default": {
